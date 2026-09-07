@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "VoiceAxis | BPO & Call Center Partnership" },
+      { title: "Moontech Solution | BPO & Call Center Partnership" },
       { name: "description", content: "Professional BPO and call center services for outbound calling, lead qualification, follow-ups, appointment setting, and customer outreach." },
-      { name: "author", content: "VoiceAxis" },
-      { property: "og:title", content: "VoiceAxis | BPO & Call Center Partnership" },
+      { name: "author", content: "Moontech Solution" },
+      { property: "og:title", content: "Moontech Solution | BPO & Call Center Partnership" },
       { property: "og:description", content: "Scale your outreach with experienced agents, flexible scaling, and clear reporting." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@voiceaxis" },
+      { name: "twitter:site", content: "@moontechsolution" },
     ],
     links: [
       {
