@@ -543,11 +543,11 @@ function Index() {
                 <div className="mt-8 space-y-4">
                   <div className="flex items-center gap-3">
                     <Phone className="h-5 w-5 opacity-80" aria-hidden="true" />
-                    <span>+1 (555) 123-4567</span>
+                    <span>+880 1634-709289</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail className="h-5 w-5 opacity-80" aria-hidden="true" />
-                    <span>hello@voiceaxis.example.com</span>
+                    <span>moontech325@gmail.com</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Clock className="h-5 w-5 opacity-80" aria-hidden="true" />
