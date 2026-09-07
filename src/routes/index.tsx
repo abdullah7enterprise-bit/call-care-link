@@ -35,7 +35,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: "VoiceAxis | BPO & Call Center Partnership for Growth Teams",
+        title: "Moontech Solution | BPO & Call Center Partnership for Growth Teams",
       },
       {
         name: "description",
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:title",
-        content: "VoiceAxis | BPO & Call Center Partnership for Growth Teams",
+        content: "Moontech Solution | BPO & Call Center Partnership for Growth Teams",
       },
       {
         property: "og:description",
@@ -55,7 +55,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:title",
-        content: "VoiceAxis | BPO & Call Center Partnership for Growth Teams",
+        content: "Moontech Solution | BPO & Call Center Partnership for Growth Teams",
       },
       {
         name: "twitter:description",
@@ -244,7 +244,7 @@ function Index() {
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
               <Phone className="h-5 w-5" aria-hidden="true" />
             </div>
-            <span className="text-xl font-bold tracking-tight text-foreground">VoiceAxis</span>
+            <span className="text-xl font-bold tracking-tight text-foreground">Moontech Solution</span>
           </Link>
 
           <nav className="hidden items-center gap-8 md:flex">
@@ -618,7 +618,7 @@ function Index() {
                 <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                   <Phone className="h-5 w-5" aria-hidden="true" />
                 </div>
-                <span className="text-xl font-bold tracking-tight text-foreground">VoiceAxis</span>
+                <span className="text-xl font-bold tracking-tight text-foreground">Moontech Solution</span>
               </Link>
               <p className="mt-4 max-w-sm text-sm text-muted-foreground">
                 Reliable BPO and call center support that helps businesses generate qualified leads,
@@ -655,7 +655,7 @@ function Index() {
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                 <li>
                   <a href="#why-us" className="hover:text-foreground">
-                    Why VoiceAxis
+                    Why Moontech Solution
                   </a>
                 </li>
                 <li>
@@ -678,7 +678,7 @@ function Index() {
           </div>
           <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} VoiceAxis. All rights reserved.
+              © {new Date().getFullYear()} Moontech Solution. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-muted-foreground">
               <a href="#" className="hover:text-foreground">
