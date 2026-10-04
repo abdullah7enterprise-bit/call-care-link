@@ -1,23 +1,22 @@
 # Roadmap
 
 1. Consultation form & leads
-- [ ] Form fields & validation
-- [ ] Store submissions
-- [ ] Notify info@montechglobalservices.com (needs verified email domain)
-- [ ] Test submission
+- [x] Form fields & validation
+- [x] Store submissions (contact_submissions)
+- [ ] Notify info@montechglobalservices.com — blocked: needs verified email domain
+- [x] Test submission
 
 2. Contact & responsive QA
-- [ ] mailto / tel links
-- [ ] Desktop + mobile layout & nav
+- [x] mailto / tel / WhatsApp links
+- [x] Desktop + mobile layout
 
-3. Domain & launch
-- [ ] montechglobalservices.com + www connection
-- [ ] HTTPS & redirect
-- [ ] Retest on live site
+3. Domain & launch — blocked: user must connect montechglobalservices.com + www
+- [ ] Domain connection, HTTPS & redirect
+- [ ] Retest on live site after publish
 
 4. Polish
-- [ ] SEO title/description
-- [ ] Search Console
-- [ ] Favicon & share image
-- [ ] Analytics & spam protection
+- [x] SEO title/description
+- [ ] Search Console (after domain)
+- [ ] Analytics
+- [x] Spam protection (rate limit)
 - [x] Privacy, Terms, 404

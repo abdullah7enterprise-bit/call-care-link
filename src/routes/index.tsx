@@ -1,698 +1,383 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { createFileRoute } from "@tanstack/react-router";
 import {
+  ArrowRight,
   BarChart3,
-  Calendar,
-  CheckCircle2,
+  Building2,
+  Check,
   ChevronRight,
-  Clock,
+  CircleDollarSign,
+  ClipboardCheck,
+  Clock3,
   Headphones,
+  Home,
   Mail,
   Menu,
-  MessageSquare,
-  Phone,
-  Shield,
-  TrendingUp,
+  MessageCircle,
+  Search,
+  ShieldCheck,
+  ShoppingCart,
+  SolarPanel,
+  Sparkles,
+  Target,
   Users,
   X,
+  Zap,
 } from "lucide-react";
+import { useState } from "react";
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import heroImage from "@/assets/hero-call-center.jpg";
+import teamImage from "@/assets/montech-team.jpg";
+import { ConsultationForm } from "@/components/consultation-form";
+import { SiteButton } from "@/components/site-button";
 
 export const Route = createFileRoute("/")({
-  component: Index,
   head: () => ({
     meta: [
-      {
-        title: "Moontech Solution | BPO & Call Center Partnership for Growth Teams",
-      },
+      { title: "Montech Global Services | BPO & Remote Business Support" },
       {
         name: "description",
         content:
-          "Professional BPO and call center partner for outbound calls, lead qualification, follow-ups, appointment setting, and customer communication. Competitive pricing, experienced agents, and clear reporting.",
+          "Montech Global Services provides cold calling, appointment setting, lead generation, SDR support, customer support, and virtual assistant services.",
       },
-      {
-        property: "og:title",
-        content: "Moontech Solution | BPO & Call Center Partnership for Growth Teams",
-      },
+      { property: "og:title", content: "Montech Global Services | BPO & Remote Business Support" },
       {
         property: "og:description",
-        content:
-          "Scale your outreach with experienced agents, flexible scaling, quality monitoring, and transparent reporting.",
+        content: "Professional BPO support for outreach, sales development, customer service, and day-to-day business operations.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://montechglobalservices.com/" },
       { name: "twitter:card", content: "summary_large_image" },
-      {
-        name: "twitter:title",
-        content: "Moontech Solution | BPO & Call Center Partnership for Growth Teams",
-      },
-      {
-        name: "twitter:description",
-        content:
-          "Scale your outreach with experienced agents, flexible scaling, quality monitoring, and transparent reporting.",
-      },
     ],
+    links: [{ rel: "canonical", href: "https://montechglobalservices.com/" }],
   }),
+  component: Index,
 });
 
-const navigation = [
-  { name: "Services", href: "#services" },
-  { name: "Why Us", href: "#why-us" },
-  { name: "Process", href: "#process" },
-  { name: "Pricing", href: "#pricing" },
-  { name: "Contact", href: "#contact" },
-];
-
 const services = [
-  {
-    title: "Outbound Calling",
-    description:
-      "High-touch outbound campaigns delivered by trained agents who represent your brand with professionalism and consistency.",
-    icon: Phone,
-  },
-  {
-    title: "Lead Qualification",
-    description:
-      "Validate interest, capture intent, and pass only sales-ready leads to your team so reps spend time on real opportunities.",
-    icon: Users,
-  },
-  {
-    title: "Follow-up Management",
-    description:
-      "Structured follow-up sequences that keep prospects warm, answer questions, and move conversations forward.",
-    icon: MessageSquare,
-  },
-  {
-    title: "Appointment Setting",
-    description:
-      "Book qualified meetings directly onto your calendar with confirmed attendees and full context for every call.",
-    icon: Calendar,
-  },
-  {
-    title: "Customer Communication",
-    description:
-      "Ongoing customer touchpoints, retention calls, feedback collection, and support routing that protects relationships.",
-    icon: Headphones,
-  },
-  {
-    title: "Performance Reporting",
-    description:
-      "Clear dashboards and scheduled reports on call volume, conversion rates, talk time, and campaign outcomes.",
-    icon: BarChart3,
-  },
+  { name: "Cold Calling", description: "Professional outbound calling aligned with your campaign goals.", icon: Headphones },
+  { name: "Appointment Setting", description: "Focused prospect engagement that helps fill your team's calendar.", icon: ClipboardCheck },
+  { name: "Lead Generation", description: "Targeted outreach to identify and connect with relevant prospects.", icon: Target },
+  { name: "Lead Qualification", description: "Structured conversations that help your team focus on better-fit opportunities.", icon: Check },
+  { name: "SDR / BDR Support", description: "Flexible sales development support built around your workflow.", icon: BarChart3 },
+  { name: "Customer Support", description: "Responsive support that represents your business with care.", icon: MessageCircle },
+  { name: "Virtual Assistant Services", description: "Reliable day-to-day assistance that keeps work moving.", icon: Users },
+  { name: "Data Entry & Web Research", description: "Careful data handling and practical online research support.", icon: Search },
+  { name: "E-commerce Support", description: "Operational assistance for online stores and customer workflows.", icon: ShoppingCart },
+  { name: "B2B Outreach", description: "Consistent, professional outreach tailored to business audiences.", icon: Building2 },
 ];
 
-const differentiators = [
-  {
-    title: "Experienced Agents",
-    description:
-      "Agents trained in consultative calling, objection handling, and CRM hygiene before they ever dial on your behalf.",
-    icon: Users,
-  },
-  {
-    title: "Competitive Pricing",
-    description:
-      "Transparent per-hour, per-seat, and outcome-based models with no hidden fees or long-term lock-ins.",
-    icon: TrendingUp,
-  },
-  {
-    title: "Flexible Scaling",
-    description:
-      "Scale up for product launches or seasonal peaks, then scale back without penalty when demand normalizes.",
-    icon: TrendingUp,
-  },
-  {
-    title: "Quality Monitoring",
-    description:
-      "Recorded calls, live coaching, scorecards, and QA reviews to maintain script adherence and brand voice.",
-    icon: Shield,
-  },
-  {
-    title: "Clear Reporting",
-    description:
-      "Real-time dashboards plus weekly business reviews so you always know what is working and what needs adjusting.",
-    icon: BarChart3,
-  },
-  {
-    title: "24/7 Coverage",
-    description:
-      "Run campaigns across time zones with agents available when your prospects and customers are ready to talk.",
-    icon: Clock,
-  },
+const industries = [
+  { name: "Financial Services", icon: CircleDollarSign },
+  { name: "Home Services", icon: Home },
+  { name: "Solar", icon: SolarPanel },
+  { name: "Insurance", icon: ShieldCheck },
+  { name: "Real Estate", icon: Building2 },
+  { name: "B2B Services", icon: Users },
+  { name: "E-commerce", icon: ShoppingCart },
+  { name: "Local Services", icon: Target },
 ];
 
-const process = [
-  {
-    step: "01",
-    title: "Discovery",
-    description:
-      "We map your ideal customer profile, value proposition, objections, and existing sales motion.",
-  },
-  {
-    step: "02",
-    title: "Setup",
-    description:
-      "Agents are trained on your script, systems, and CRM so they sound like an extension of your team.",
-  },
-  {
-    step: "03",
-    title: "Launch",
-    description:
-      "Campaigns go live with daily standups, live QA, and rapid feedback loops in the first two weeks.",
-  },
-  {
-    step: "04",
-    title: "Optimize",
-    description:
-      "We review outcomes weekly, refine messaging, and adjust targeting to improve conversion over time.",
-  },
-];
+const navItems = [
+  ["Services", "#services"],
+  ["Why Montech", "#why-us"],
+  ["How It Works", "#how-it-works"],
+  ["Industries", "#industries"],
+  ["About", "#about"],
+] as const;
 
-const plans = [
-  {
-    name: "Starter",
-    description: "Best for testing a new campaign or filling a small pipeline gap.",
-    price: "$1,200",
-    unit: "/ month",
-    features: [
-      "1 dedicated agent",
-      "40 hours per week",
-      "Lead qualification",
-      "Follow-up calls",
-      "Weekly reporting",
-      "Email support",
-    ],
-    cta: "Get started",
-    featured: false,
-  },
-  {
-    name: "Growth",
-    description: "For teams that need consistent outbound and appointment setting support.",
-    price: "$3,500",
-    unit: "/ month",
-    features: [
-      "3 dedicated agents",
-      "Full-time coverage",
-      "Outbound + appointment setting",
-      "CRM integration",
-      "Daily dashboards",
-      "QA scorecards",
-      "Bi-weekly strategy calls",
-    ],
-    cta: "Talk to sales",
-    featured: true,
-  },
-  {
-    name: "Scale",
-    description: "Custom capacity, advanced workflows, and dedicated account management.",
-    price: "Custom",
-    unit: "",
-    features: [
-      "5+ agents",
-      "Multi-timezone coverage",
-      "Custom scripts & workflows",
-      "API integrations",
-      "Real-time analytics",
-      "Dedicated account manager",
-      "24/7 operations available",
-    ],
-    cta: "Request quote",
-    featured: false,
-  },
-];
+function Brand({ inverse = false }: { inverse?: boolean }) {
+  return (
+    <a href="#top" className="flex min-w-0 items-center gap-3" aria-label="Montech Global Services home">
+      <span className="grid size-10 shrink-0 place-items-center rounded-md bg-primary text-lg font-black text-primary-foreground shadow-sm">
+        M
+      </span>
+      <span className="min-w-0 leading-none">
+        <span className={inverse ? "block truncate text-base font-extrabold text-footer-foreground" : "block truncate text-base font-extrabold text-foreground"}>MONTECH</span>
+        <span className={inverse ? "mt-1 block truncate text-[0.6rem] font-bold uppercase tracking-[0.18em] text-footer-muted" : "mt-1 block truncate text-[0.6rem] font-bold uppercase tracking-[0.18em] text-muted-foreground"}>
+          Global Services
+        </span>
+      </span>
+    </a>
+  );
+}
 
 function Index() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <Phone className="h-5 w-5" aria-hidden="true" />
-            </div>
-            <span className="text-xl font-bold tracking-tight text-foreground">Moontech Solution</span>
-          </Link>
-
-          <nav className="hidden items-center gap-8 md:flex">
-            {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {item.name}
+    <div id="top" className="min-h-screen overflow-x-clip bg-background text-foreground">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-border/80 bg-background/95 backdrop-blur-md">
+        <div className="mx-auto grid h-20 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 sm:px-8 lg:flex lg:justify-between">
+          <Brand />
+          <nav className="hidden items-center gap-6 lg:flex" aria-label="Main navigation">
+            {navItems.map(([label, href]) => (
+              <a key={href} href={href} className="text-sm font-semibold text-muted-foreground transition-colors hover:text-primary">
+                {label}
               </a>
             ))}
           </nav>
-
-          <div className="hidden items-center gap-3 md:flex">
-            <Button variant="outline" asChild>
-              <a href="#contact">Request quote</a>
-            </Button>
-            <Button asChild>
-              <a href="tel:+15551234567">Call us</a>
-            </Button>
-          </div>
-
+          <SiteButton href="#contact" className="hidden lg:inline-flex">
+            Get a Free Consultation <ArrowRight className="size-4" aria-hidden="true" />
+          </SiteButton>
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-md p-2 text-foreground md:hidden"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-expanded={mobileMenuOpen}
-            aria-label="Toggle navigation menu"
+            className="grid size-11 shrink-0 place-items-center rounded-md border border-border bg-background text-foreground lg:hidden"
+            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((open) => !open)}
           >
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
         </div>
-
-        {mobileMenuOpen && (
-          <div className="border-t border-border px-4 py-4 md:hidden">
-            <nav className="flex flex-col gap-4">
-              {navigation.map((item) => (
+        {menuOpen && (
+          <nav className="border-t border-border bg-background px-5 py-5 lg:hidden" aria-label="Mobile navigation">
+            <div className="mx-auto flex max-w-7xl flex-col gap-1">
+              {navItems.map(([label, href]) => (
                 <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-base font-medium text-foreground"
-                  onClick={() => setMobileMenuOpen(false)}
+                  key={href}
+                  href={href}
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-md px-3 py-3 text-sm font-bold text-foreground hover:bg-secondary"
                 >
-                  {item.name}
+                  {label}
                 </a>
               ))}
-              <div className="mt-2 flex flex-col gap-3">
-                <Button variant="outline" asChild className="w-full">
-                  <a href="#contact">Request quote</a>
-                </Button>
-                <Button asChild className="w-full">
-                  <a href="tel:+15551234567">Call us</a>
-                </Button>
-              </div>
-            </nav>
-          </div>
+              <SiteButton href="#contact" className="mt-3" onClick={() => setMenuOpen(false)}>
+                Get a Free Consultation
+              </SiteButton>
+            </div>
+          </nav>
         )}
       </header>
 
       <main>
-        {/* Hero */}
-        <section className="bg-hero-gradient px-4 py-16 sm:px-6 lg:px-8">
-          <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
-            <div className="max-w-2xl">
-              <Badge
-                variant="secondary"
-                className="mb-6 text-xs font-semibold uppercase tracking-wider"
-              >
-                BPO & Call Center Partner
-              </Badge>
-              <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                Scale your outreach with reliable calling operations
+        <section className="relative flex min-h-[760px] items-center overflow-hidden pt-20 lg:min-h-[min(860px,94vh)]" aria-labelledby="hero-title">
+          <img
+            src={teamImage}
+            alt="A professional remote operations team collaborating in a modern office"
+            width={1600}
+            height={1000}
+            fetchPriority="high"
+            className="absolute inset-0 size-full object-cover object-[67%_center]"
+          />
+          <div className="absolute inset-0 bg-hero-mobile md:bg-[linear-gradient(90deg,var(--hero-overlay)_0%,var(--hero-overlay)_45%,var(--hero-overlay-soft)_72%,transparent_100%)]" />
+          <div className="relative mx-auto w-full max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
+            <div className="max-w-2xl text-primary-foreground">
+              <p className="mb-6 inline-flex items-center gap-2 border-l-2 border-accent bg-hero-label px-4 py-2 text-xs font-bold uppercase tracking-[0.16em]">
+                <span className="size-1.5 rounded-full bg-accent" /> Global BPO & Remote Support
+              </p>
+              <h1 id="hero-title" className="text-balance text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-6xl xl:text-7xl">
+                BPO support built to move your business forward.
               </h1>
-              <p className="mt-6 text-lg text-muted-foreground">
-                Professional agents for outbound calls, lead qualification, follow-ups, and
-                appointment setting. Flexible capacity, transparent reporting, and quality you can
-                trust.
+              <p className="mt-6 max-w-xl text-base leading-7 text-hero-muted sm:text-lg sm:leading-8">
+                Cold calling, appointment setting, lead generation, SDR support, customer support, and virtual assistant services—delivered as an extension of your team.
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Button size="lg" asChild>
-                  <a href="#contact">Request a quote</a>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <a href="#services">Explore services</a>
-                </Button>
-              </div>
-              <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-accent" aria-hidden="true" />
-                  <span>No long-term contracts</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-accent" aria-hidden="true" />
-                  <span>Trained agents in 5 days</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-accent" aria-hidden="true" />
-                  <span>Weekly performance reviews</span>
-                </div>
-              </div>
-            </div>
-            <div className="relative overflow-hidden rounded-2xl border border-border shadow-xl">
-              <img
-                src={heroImage}
-                alt="Professional call center team providing BPO services and customer outreach"
-                width={1344}
-                height={768}
-                className="h-auto w-full object-cover"
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* Stats */}
-        <section className="border-b border-border px-4 py-12 sm:px-6 lg:px-8">
-          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 md:grid-cols-4">
-            {[
-              { value: "500+", label: "Agents deployed" },
-              { value: "2M+", label: "Calls handled" },
-              { value: "40%", label: "Avg. cost savings" },
-              { value: "98%", label: "Client retention" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-3xl font-bold text-foreground sm:text-4xl">{stat.value}</div>
-                <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Services */}
-        <section id="services" className="px-4 py-20 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                End-to-end calling operations
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                From first dial to closed deal, our agents support the full outreach lifecycle.
-              </p>
-            </div>
-            <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {services.map((service) => (
-                <Card key={service.title} className="group transition-shadow hover:shadow-md">
-                  <CardHeader>
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                      <service.icon className="h-6 w-6" aria-hidden="true" />
-                    </div>
-                    <CardTitle className="text-xl">{service.title}</CardTitle>
-                    <CardDescription className="text-base leading-relaxed">
-                      {service.description}
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Why us */}
-        <section id="why-us" className="bg-secondary/50 px-4 py-20 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-              <div>
-                <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                  Built for growth, quality, and control
-                </h2>
-                <p className="mt-4 text-lg text-muted-foreground">
-                  We combine experienced talent, competitive pricing, and transparent operations so
-                  your outreach keeps pace with your ambitions.
-                </p>
-                <div className="mt-8 flex flex-col gap-4">
-                  {[
-                    "Agents trained on your script and CRM",
-                    "Live QA and recorded call reviews",
-                    "Flexible contracts that scale monthly",
-                    "Dedicated account manager on Growth plans",
-                  ].map((item) => (
-                    <div key={item} className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-                      <span className="text-foreground">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="grid gap-6 sm:grid-cols-2">
-                {differentiators.map((item) => (
-                  <Card key={item.title} className="bg-card">
-                    <CardHeader className="pb-3">
-                      <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-accent">
-                        <item.icon className="h-5 w-5" aria-hidden="true" />
-                      </div>
-                      <CardTitle className="text-lg">{item.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">{item.description}</p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Process */}
-        <section id="process" className="px-4 py-20 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                A simple path to live campaigns
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                We move fast without cutting corners. Most teams are live within two weeks.
-              </p>
-            </div>
-            <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-              {process.map((step) => (
-                <div key={step.step} className="relative">
-                  <div className="text-5xl font-bold text-border">{step.step}</div>
-                  <h3 className="mt-4 text-xl font-semibold text-foreground">{step.title}</h3>
-                  <p className="mt-2 text-muted-foreground">{step.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing */}
-        <section id="pricing" className="bg-secondary/50 px-4 py-20 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                Transparent, scalable pricing
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Choose a plan that fits your current volume and upgrade as you grow.
-              </p>
-            </div>
-            <div className="mt-14 grid gap-6 lg:grid-cols-3">
-              {plans.map((plan) => (
-                <Card
-                  key={plan.name}
-                  className={`relative flex flex-col ${plan.featured ? "border-accent shadow-lg" : ""}`}
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <SiteButton href="#contact" variant="light">
+                  Get a Free Consultation <ArrowRight className="size-4" aria-hidden="true" />
+                </SiteButton>
+                <SiteButton
+                  href="#contact"
+                  className="border border-hero-border bg-transparent text-primary-foreground shadow-none hover:bg-hero-label"
                 >
-                  {plan.featured && (
-                    <Badge className="absolute -top-3 left-6 bg-accent text-accent-foreground">
-                      Most popular
-                    </Badge>
-                  )}
-                  <CardHeader>
-                    <CardTitle className="text-2xl">{plan.name}</CardTitle>
-                    <CardDescription className="text-base">{plan.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="flex-1">
-                    <div className="mb-6">
-                      <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                      <span className="text-muted-foreground">{plan.unit}</span>
-                    </div>
-                    <ul className="space-y-3">
-                      {plan.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-3">
-                          <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-                          <span className="text-sm text-foreground">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                  <CardContent className="pt-0">
-                    <Button
-                      variant={plan.featured ? "default" : "outline"}
-                      className="w-full"
-                      asChild
-                    >
-                      <a href="#contact">{plan.cta}</a>
-                    </Button>
-                  </CardContent>
-                </Card>
+                  Contact Us
+                </SiteButton>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-b border-border bg-background" aria-label="Our working principles">
+          <div className="mx-auto grid max-w-7xl divide-y divide-border px-5 sm:px-8 md:grid-cols-3 md:divide-x md:divide-y-0">
+            {[
+              [Users, "Flexible Team Support", "Support shaped around your business needs."],
+              [Target, "Goal-Aligned Delivery", "Every engagement starts with your priorities."],
+              [Clock3, "Dependable Operations", "Consistent communication and thoughtful execution."],
+            ].map(([Icon, title, text]) => {
+              const TrustIcon = Icon as typeof Users;
+              return (
+                <div key={title as string} className="flex gap-4 py-8 md:px-7 first:pl-0 last:pr-0">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-md bg-accent text-primary">
+                    <TrustIcon className="size-5" aria-hidden="true" />
+                  </span>
+                  <div>
+                    <h2 className="font-bold">{title as string}</h2>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{text as string}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <section id="services" className="scroll-mt-20 bg-secondary py-20 sm:py-28">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8">
+            <SectionIntro eyebrow="What we do" title="Specialized support across your business" text="Choose the services that fit your goals, workflows, and growth plans." />
+            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+              {services.map(({ name, description, icon: Icon }) => (
+                <article key={name} className="group flex min-h-60 flex-col rounded-md border border-border bg-background p-6 shadow-[0_12px_36px_var(--card-shadow)] transition-all duration-200 hover:-translate-y-1 hover:border-primary/35 hover:shadow-[0_16px_42px_var(--card-shadow-hover)]">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-md bg-accent text-primary">
+                    <Icon className="size-5 transition-transform group-hover:-translate-y-0.5" strokeWidth={1.8} aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-6 text-lg font-bold leading-6">{name}</h3>
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">{description}</p>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Contact */}
-        <section id="contact" className="bg-brand-gradient px-4 py-20 text-primary-foreground sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="grid gap-12 lg:grid-cols-2">
-              <div>
-                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                  Ready to scale your calling operation?
-                </h2>
-                <p className="mt-4 text-lg opacity-90">
-                  Tell us about your campaign and we will respond with a tailored proposal within one
-                  business day.
-                </p>
-                <div className="mt-8 space-y-4">
-                  <div className="flex items-center gap-3">
-                    <Phone className="h-5 w-5 opacity-80" aria-hidden="true" />
-                    <span>+880 1634-709289</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Mail className="h-5 w-5 opacity-80" aria-hidden="true" />
-                    <span>moontech325@gmail.com</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Clock className="h-5 w-5 opacity-80" aria-hidden="true" />
-                    <span>Monday - Friday: 8am - 8pm EST</span>
-                  </div>
-                </div>
-              </div>
-              <Card className="bg-card text-card-foreground">
-                <CardContent className="p-6 sm:p-8">
-                  <form
-                    className="space-y-5"
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      alert("Thanks for your interest. Our team will contact you shortly.");
-                    }}
-                  >
-                    <div className="grid gap-5 sm:grid-cols-2">
-                      <div className="space-y-2">
-                        <label htmlFor="name" className="text-sm font-medium">
-                          Name
-                        </label>
-                        <Input id="name" placeholder="Your name" required />
-                      </div>
-                      <div className="space-y-2">
-                        <label htmlFor="email" className="text-sm font-medium">
-                          Work email
-                        </label>
-                        <Input id="email" type="email" placeholder="you@company.com" required />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="company" className="text-sm font-medium">
-                        Company
-                      </label>
-                      <Input id="company" placeholder="Company name" />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="message" className="text-sm font-medium">
-                        What do you need help with?
-                      </label>
-                      <Textarea
-                        id="message"
-                        rows={4}
-                        placeholder="Outbound calling, lead qualification, appointment setting..."
-                      />
-                    </div>
-                    <Button type="submit" className="w-full">
-                      Send inquiry
-                      <ChevronRight className="h-4 w-4" aria-hidden="true" />
-                    </Button>
-                    <p className="text-center text-xs text-muted-foreground">
-                      We respect your privacy and never share your information.
-                    </p>
-                  </form>
-                </CardContent>
-              </Card>
+        <section id="why-us" className="scroll-mt-20 py-20 sm:py-28">
+          <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <p className="section-eyebrow">Why choose Montech</p>
+              <h2 className="mt-4 text-balance text-3xl font-extrabold leading-tight sm:text-5xl">Support that adapts to how your business operates.</h2>
+              <p className="mt-6 max-w-xl text-base leading-7 text-muted-foreground">
+                We approach every engagement as an extension of your operation—learning your requirements, aligning with your process, and keeping communication clear.
+              </p>
+              <SiteButton href="#contact" variant="secondary" className="mt-8">
+                Discuss Your Requirements <ArrowRight className="size-4" aria-hidden="true" />
+              </SiteButton>
             </div>
+            <div className="grid gap-5 sm:grid-cols-2">
+              {[
+                [Sparkles, "Built Around Your Needs", "Select the support functions that matter most to your business."],
+                [Users, "An Extension of Your Team", "Collaborative support designed to work alongside your internal team."],
+                [ShieldCheck, "Professional Communication", "Clear, respectful communication across every customer and prospect touchpoint."],
+                [Zap, "Practical and Focused", "A straightforward approach centered on your real operational priorities."],
+              ].map(([Icon, title, text]) => {
+                const ReasonIcon = Icon as typeof Users;
+                return (
+                  <article key={title as string} className="rounded-md border border-border border-t-primary bg-secondary p-6 shadow-[0_10px_30px_var(--card-shadow)]">
+                    <ReasonIcon className="size-6 text-primary" aria-hidden="true" />
+                    <h3 className="mt-5 text-lg font-bold">{title as string}</h3>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">{text as string}</p>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section id="how-it-works" className="scroll-mt-20 bg-primary py-20 text-primary-foreground sm:py-24" aria-labelledby="process-title">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8">
+            <div className="max-w-2xl">
+              <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-accent">How it works</p>
+              <h2 id="process-title" className="mt-4 text-3xl font-extrabold sm:text-5xl">A clear path from brief to support.</h2>
+            </div>
+            <ol className="mt-14 grid gap-8 md:grid-cols-3 md:gap-0">
+              {[
+                ["01", "Share Your Requirements", "Tell us about your goals, current process, and the support you need."],
+                ["02", "Shape the Right Approach", "We discuss the service mix and workflow that best fits your operation."],
+                ["03", "Start Working Together", "Your support begins with clear expectations and ongoing communication."],
+              ].map(([number, title, text]) => (
+                <li key={number} className="border-t border-process-border pt-6 md:px-8 md:first:pl-0 md:last:pr-0">
+                  <span className="text-sm font-black text-accent">{number}</span>
+                  <h3 className="mt-8 text-xl font-bold">{title}</h3>
+                  <p className="mt-3 max-w-sm text-sm leading-6 text-process-muted">{text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <section id="industries" className="scroll-mt-20 bg-secondary py-20 sm:py-28">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8">
+            <SectionIntro eyebrow="Industries" title="Versatile support for varied sectors" text="Our services are structured to support businesses across customer-focused and growth-driven industries." />
+            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {industries.map(({ name, icon: Icon }) => (
+                <div key={name} className="flex items-center gap-4 rounded-md border border-border bg-background p-5 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-sm">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-md bg-accent text-primary">
+                    <Icon className="size-5" aria-hidden="true" />
+                  </span>
+                  <h3 className="font-bold">{name}</h3>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="scroll-mt-20 py-20 sm:py-28">
+          <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:items-center">
+            <div className="relative min-h-[420px] overflow-hidden rounded-lg shadow-[0_24px_60px_var(--image-shadow)] sm:min-h-[520px]">
+              <img src={teamImage} alt="Business support specialists discussing an outsourcing workflow together" loading="lazy" width={1600} height={1008} className="absolute inset-0 size-full object-cover object-[62%_center]" />
+            </div>
+            <div className="lg:pl-10">
+              <p className="section-eyebrow">About us</p>
+              <h2 className="mt-4 text-balance text-3xl font-extrabold leading-tight sm:text-5xl">Practical remote support with a global outlook.</h2>
+              <p className="mt-6 text-base leading-7 text-muted-foreground">
+                Montech Global Services provides BPO and remote business support for companies that need dependable help across sales outreach, customer service, administration, research, and e-commerce operations.
+              </p>
+              <p className="mt-4 text-base leading-7 text-muted-foreground">
+                Our focus is simple: understand what your business needs, communicate clearly, and provide support that fits your way of working.
+              </p>
+              <a href="mailto:info@montechglobalservices.com" className="mt-8 inline-flex items-center gap-2 font-bold text-primary hover:underline">
+                info@montechglobalservices.com <ChevronRight className="size-4" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="scroll-mt-20 bg-cta py-20 text-primary-foreground sm:py-24">
+          <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[0.78fr_1.22fr] lg:gap-16">
+            <div className="lg:pt-8">
+              <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-accent">Free consultation</p>
+              <h2 className="mt-4 text-balance text-3xl font-extrabold leading-tight sm:text-5xl">Tell us where your business needs support.</h2>
+              <p className="mt-5 max-w-xl text-base leading-7 text-hero-muted">
+                Share your requirements and our team will review the best-fit service approach for your operation.
+              </p>
+              <div className="mt-9 space-y-4 border-t border-process-border pt-7">
+                <p className="font-bold">Montech Global Services</p>
+                <a href="mailto:info@montechglobalservices.com?subject=Free%20Consultation%20Request" className="flex items-center gap-3 text-sm text-hero-muted transition-colors hover:text-primary-foreground">
+                  <span className="grid size-10 shrink-0 place-items-center rounded-md bg-hero-label text-accent"><Mail className="size-5" aria-hidden="true" /></span>
+                  info@montechglobalservices.com
+                </a>
+                <a href="https://wa.me/8801576768207" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-hero-muted transition-colors hover:text-primary-foreground">
+                  <span className="grid size-10 shrink-0 place-items-center rounded-md bg-hero-label text-accent"><MessageCircle className="size-5" aria-hidden="true" /></span>
+                  WhatsApp: +880 1576 768207
+                </a>
+              </div>
+            </div>
+            <ConsultationForm />
           </div>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-border bg-background px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-8 md:grid-cols-4">
-            <div className="md:col-span-2">
-              <Link to="/" className="flex items-center gap-2">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                  <Phone className="h-5 w-5" aria-hidden="true" />
-                </div>
-                <span className="text-xl font-bold tracking-tight text-foreground">Moontech Solution</span>
-              </Link>
-              <p className="mt-4 max-w-sm text-sm text-muted-foreground">
-                Reliable BPO and call center support that helps businesses generate qualified leads,
-                book appointments, and build stronger customer relationships.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-foreground">Services</h4>
-              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                <li>
-                  <a href="#services" className="hover:text-foreground">
-                    Outbound calling
-                  </a>
-                </li>
-                <li>
-                  <a href="#services" className="hover:text-foreground">
-                    Lead qualification
-                  </a>
-                </li>
-                <li>
-                  <a href="#services" className="hover:text-foreground">
-                    Appointment setting
-                  </a>
-                </li>
-                <li>
-                  <a href="#services" className="hover:text-foreground">
-                    Customer communication
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-foreground">Company</h4>
-              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                <li>
-                  <a href="#why-us" className="hover:text-foreground">
-                    Why Moontech Solution
-                  </a>
-                </li>
-                <li>
-                  <a href="#process" className="hover:text-foreground">
-                    Our process
-                  </a>
-                </li>
-                <li>
-                  <a href="#pricing" className="hover:text-foreground">
-                    Pricing
-                  </a>
-                </li>
-                <li>
-                  <a href="#contact" className="hover:text-foreground">
-                    Contact
-                  </a>
-                </li>
-              </ul>
+      <footer className="bg-footer py-12 text-footer-foreground">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 md:grid-cols-[1fr_auto] md:items-end">
+          <div>
+            <Brand inverse />
+            <p className="mt-5 text-sm text-footer-muted">BPO & Remote Business Support</p>
+            <div className="mt-5 flex flex-col gap-2 text-sm">
+              <a href="mailto:info@montechglobalservices.com" className="hover:text-primary-foreground">info@montechglobalservices.com</a>
+              <a href="tel:+8801576768207" className="hover:text-primary-foreground">+880 1576 768207</a>
             </div>
           </div>
-          <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
-            <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Moontech Solution. All rights reserved.
-            </p>
-            <div className="flex gap-6 text-sm text-muted-foreground">
-              <a href="#" className="hover:text-foreground">
-                Privacy policy
-              </a>
-              <a href="#" className="hover:text-foreground">
-                Terms of service
-              </a>
-            </div>
+          <div className="md:text-right">
+            <a href="#top" className="inline-flex items-center gap-2 text-sm font-bold hover:text-primary-foreground">Back to top <ArrowRight className="size-4 -rotate-90" /></a>
+            <p className="mt-5 text-xs text-footer-muted">© 2026 Montech Global Services. All rights reserved.</p>
           </div>
         </div>
       </footer>
+
+      <a
+        href="https://wa.me/8801576768207"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Chat with Montech Global Services on WhatsApp"
+        className="fixed bottom-5 right-5 z-40 grid size-14 place-items-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-lg transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+      >
+        <MessageCircle className="size-6" fill="currentColor" aria-hidden="true" />
+      </a>
     </div>
   );
 }
 
-export default Index;
+function SectionIntro({ eyebrow, title, text }: { eyebrow: string; title: string; text: string }) {
+  return (
+    <div className="max-w-2xl">
+      <p className="section-eyebrow">{eyebrow}</p>
+      <h2 className="mt-4 text-balance text-3xl font-extrabold leading-tight sm:text-5xl">{title}</h2>
+      <p className="mt-5 text-base leading-7 text-muted-foreground">{text}</p>
+    </div>
+  );
+}
