@@ -14,7 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      contact_rate_limits: {
+        Row: {
+          identifier_hash: string
+          submission_count: number
+          window_started_at: string
+        }
+        Insert: {
+          identifier_hash: string
+          submission_count?: number
+          window_started_at?: string
+        }
+        Update: {
+          identifier_hash?: string
+          submission_count?: number
+          window_started_at?: string
+        }
+        Relationships: []
+      }
+      contact_submissions: {
+        Row: {
+          business_email: string
+          company_name: string
+          created_at: string
+          full_name: string
+          id: string
+          message: string
+          monthly_requirement: string
+          phone_whatsapp: string
+          service_interest: string
+        }
+        Insert: {
+          business_email: string
+          company_name: string
+          created_at?: string
+          full_name: string
+          id?: string
+          message: string
+          monthly_requirement: string
+          phone_whatsapp: string
+          service_interest: string
+        }
+        Update: {
+          business_email?: string
+          company_name?: string
+          created_at?: string
+          full_name?: string
+          id?: string
+          message?: string
+          monthly_requirement?: string
+          phone_whatsapp?: string
+          service_interest?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
