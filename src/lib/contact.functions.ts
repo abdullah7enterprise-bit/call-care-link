@@ -16,7 +16,7 @@ export const contactSchema = z.object({
   fullName: z.string().trim().min(1, "Enter your full name.").max(100, "Keep your name under 100 characters."),
   companyName: z.string().trim().min(1, "Enter your company name.").max(150, "Keep the company name under 150 characters."),
   businessEmail: z.string().trim().email("Enter a valid business email.").max(255, "Keep the email under 255 characters."),
-  phoneWhatsapp: z.string().trim().min(5, "Enter a valid phone or WhatsApp number.").max(40, "Keep the number under 40 characters."),
+  phoneWhatsapp: z.string().trim().min(5, "Enter a valid phone number.").max(40, "Keep the number under 40 characters."),
   serviceInterest: z.enum(consultationServices, { message: "Choose a service." }),
   monthlyRequirement: z.string().trim().min(1, "Enter your estimated monthly requirement.").max(120, "Keep this under 120 characters."),
   message: z.string().trim().min(1, "Tell us briefly about your requirements.").max(2000, "Keep your message under 2,000 characters."),

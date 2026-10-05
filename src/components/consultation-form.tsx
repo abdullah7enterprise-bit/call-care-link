@@ -62,7 +62,7 @@ export function ConsultationForm() {
         <FormField label="Business Email" htmlFor="businessEmail" error={errors.businessEmail?.message}>
           <Input id="businessEmail" type="email" inputMode="email" autoComplete="email" maxLength={255} aria-invalid={Boolean(errors.businessEmail)} className={fieldClassName} {...register("businessEmail")} />
         </FormField>
-        <FormField label="Phone / WhatsApp" htmlFor="phoneWhatsapp" error={errors.phoneWhatsapp?.message}>
+        <FormField label="Phone" htmlFor="phoneWhatsapp" error={errors.phoneWhatsapp?.message}>
           <Input id="phoneWhatsapp" type="tel" inputMode="tel" autoComplete="tel" maxLength={40} aria-invalid={Boolean(errors.phoneWhatsapp)} className={fieldClassName} {...register("phoneWhatsapp")} />
         </FormField>
         <FormField label="Service Interested In" htmlFor="serviceInterest" error={errors.serviceInterest?.message}>
