@@ -13,6 +13,7 @@ import {
   Mail,
   Menu,
   MessageCircle,
+  Phone,
   Search,
   ShieldCheck,
   ShoppingCart,
@@ -331,9 +332,9 @@ function Index() {
                   <span className="grid size-10 shrink-0 place-items-center rounded-md bg-hero-label text-accent"><Mail className="size-5" aria-hidden="true" /></span>
                   info@montechglobalservices.com
                 </a>
-                <a href="https://wa.me/8801576768207" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-hero-muted transition-colors hover:text-primary-foreground">
-                  <span className="grid size-10 shrink-0 place-items-center rounded-md bg-hero-label text-accent"><MessageCircle className="size-5" aria-hidden="true" /></span>
-                  WhatsApp: +880 1576 768207
+                <a href="tel:+8801576768207" className="flex items-center gap-3 text-sm text-hero-muted transition-colors hover:text-primary-foreground">
+                  <span className="grid size-10 shrink-0 place-items-center rounded-md bg-hero-label text-accent"><Phone className="size-5" aria-hidden="true" /></span>
+                  +880 1576 768207
                 </a>
               </div>
             </div>
@@ -359,15 +360,6 @@ function Index() {
         </div>
       </footer>
 
-      <a
-        href="https://wa.me/8801576768207"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Chat with Montech Global Services on WhatsApp"
-        className="fixed bottom-5 right-5 z-40 grid size-14 place-items-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-lg transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-      >
-        <MessageCircle className="size-6" fill="currentColor" aria-hidden="true" />
-      </a>
     </div>
   );
 }
