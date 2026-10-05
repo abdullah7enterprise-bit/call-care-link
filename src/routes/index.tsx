@@ -33,13 +33,13 @@ import { SiteButton } from "@/components/site-button";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Montech Global Services | BPO & Remote Business Support" },
+      { title: "MONTECH Global Services | BPO & Remote Business Support" },
       {
         name: "description",
         content:
-          "Montech Global Services provides cold calling, appointment setting, lead generation, SDR support, customer support, and virtual assistant services.",
+          "MONTECH Global Services provides cold calling, appointment setting, lead generation, SDR support, customer support, and virtual assistant services.",
       },
-      { property: "og:title", content: "Montech Global Services | BPO & Remote Business Support" },
+      { property: "og:title", content: "MONTECH Global Services | BPO & Remote Business Support" },
       {
         property: "og:description",
         content: "Professional BPO support for outreach, sales development, customer service, and day-to-day business operations.",
@@ -87,7 +87,7 @@ const navItems = [
 
 function Brand({ inverse = false }: { inverse?: boolean }) {
   return (
-    <a href="#top" className="flex min-w-0 items-center gap-3" aria-label="Montech Global Services home">
+    <a href="#top" className="flex min-w-0 items-center gap-3" aria-label="MONTECH Global Services home">
       <span className="grid size-10 shrink-0 place-items-center rounded-md bg-primary text-lg font-black text-primary-foreground shadow-sm">
         M
       </span>
@@ -306,7 +306,7 @@ function Index() {
               <p className="section-eyebrow">About us</p>
               <h2 className="mt-4 text-balance text-3xl font-extrabold leading-tight sm:text-5xl">Practical remote support with a global outlook.</h2>
               <p className="mt-6 text-base leading-7 text-muted-foreground">
-                Montech Global Services provides BPO and remote business support for companies that need dependable help across sales outreach, customer service, administration, research, and e-commerce operations.
+                MONTECH Global Services provides BPO and remote business support for companies that need dependable help across sales outreach, customer service, administration, research, and e-commerce operations.
               </p>
               <p className="mt-4 text-base leading-7 text-muted-foreground">
                 Our focus is simple: understand what your business needs, communicate clearly, and provide support that fits your way of working.
@@ -327,7 +327,7 @@ function Index() {
                 Share your requirements and our team will review the best-fit service approach for your operation.
               </p>
               <div className="mt-9 space-y-4 border-t border-process-border pt-7">
-                <p className="font-bold">Montech Global Services</p>
+                <p className="font-bold">MONTECH Global Services</p>
                 <a href="mailto:info@montechglobalservices.com?subject=Free%20Consultation%20Request" className="flex items-center gap-3 text-sm text-hero-muted transition-colors hover:text-primary-foreground">
                   <span className="grid size-10 shrink-0 place-items-center rounded-md bg-hero-label text-accent"><Mail className="size-5" aria-hidden="true" /></span>
                   info@montechglobalservices.com
@@ -355,7 +355,7 @@ function Index() {
           </div>
           <div className="md:text-right">
             <a href="#top" className="inline-flex items-center gap-2 text-sm font-bold hover:text-primary-foreground">Back to top <ArrowRight className="size-4 -rotate-90" /></a>
-            <p className="mt-5 text-xs text-footer-muted">© 2026 Montech Global Services. All rights reserved.</p>
+            <p className="mt-5 text-xs text-footer-muted">© 2026 MONTECH Global Services. All rights reserved.</p>
           </div>
         </div>
       </footer>
