@@ -7,7 +7,8 @@
 - [x] Test submission; QA Test rows deleted
 
 2. Contact & responsive QA
-- [x] mailto / tel / WhatsApp links
+- [x] mailto / tel links (WhatsApp removed; phone +8801922229420)
+- [x] Footer links to Privacy, Terms, Resources
 - [x] Desktop + mobile layout
 - [x] Mobile menu opens with all links
 
