@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   BarChart3,
@@ -332,9 +332,9 @@ function Index() {
                   <span className="grid size-10 shrink-0 place-items-center rounded-md bg-hero-label text-accent"><Mail className="size-5" aria-hidden="true" /></span>
                   info@montechglobalservices.com
                 </a>
-                <a href="tel:+8801576768207" className="flex items-center gap-3 text-sm text-hero-muted transition-colors hover:text-primary-foreground">
+                <a href="tel:+8801922229420" className="flex items-center gap-3 text-sm text-hero-muted transition-colors hover:text-primary-foreground">
                   <span className="grid size-10 shrink-0 place-items-center rounded-md bg-hero-label text-accent"><Phone className="size-5" aria-hidden="true" /></span>
-                  +880 1576 768207
+                  +880 1922 229420
                 </a>
               </div>
             </div>
@@ -350,11 +350,16 @@ function Index() {
             <p className="mt-5 text-sm text-footer-muted">BPO & Remote Business Support</p>
             <div className="mt-5 flex flex-col gap-2 text-sm">
               <a href="mailto:info@montechglobalservices.com" className="hover:text-primary-foreground">info@montechglobalservices.com</a>
-              <a href="tel:+8801576768207" className="hover:text-primary-foreground">+880 1576 768207</a>
+              <a href="tel:+8801922229420" className="hover:text-primary-foreground">+880 1922 229420</a>
             </div>
           </div>
           <div className="md:text-right">
             <a href="#top" className="inline-flex items-center gap-2 text-sm font-bold hover:text-primary-foreground">Back to top <ArrowRight className="size-4 -rotate-90" /></a>
+            <nav className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-footer-muted md:justify-end" aria-label="Footer navigation">
+              <Link to="/privacy" className="hover:text-primary-foreground">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-primary-foreground">Terms</Link>
+              <Link to="/resources" className="hover:text-primary-foreground">Resources</Link>
+            </nav>
             <p className="mt-5 text-xs text-footer-muted">© 2026 MONTECH Global Services. All rights reserved.</p>
           </div>
         </div>

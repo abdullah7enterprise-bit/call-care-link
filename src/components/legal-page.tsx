@@ -23,6 +23,12 @@ export function LegalPage({ title, children }: { title: string; children: ReactN
         </div>
       </main>
       <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
+        <nav className="mb-3 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm" aria-label="Footer navigation">
+          <Link to="/" className="hover:text-primary">Home</Link>
+          <Link to="/privacy" className="hover:text-primary">Privacy Policy</Link>
+          <Link to="/terms" className="hover:text-primary">Terms</Link>
+          <Link to="/resources" className="hover:text-primary">Resources</Link>
+        </nav>
         © 2026 MONTECH Global Services. All rights reserved.
       </footer>
     </div>

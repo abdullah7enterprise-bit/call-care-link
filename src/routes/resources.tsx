@@ -25,7 +25,7 @@ function ResourcesPage() {
       <h2>Policies</h2>
       <p><Link to="/privacy">Privacy Policy</Link> · <Link to="/terms">Terms</Link></p>
       <h2>Contact</h2>
-      <p>Email <a href="mailto:info@montechglobalservices.com">info@montechglobalservices.com</a> or call <a href="tel:+8801576768207">+880 1576 768207</a>.</p>
+      <p>Email <a href="mailto:info@montechglobalservices.com">info@montechglobalservices.com</a> or call <a href="tel:+8801922229420">+880 1922 229420</a>.</p>
     </LegalPage>
   );
 }
