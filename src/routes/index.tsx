@@ -33,7 +33,7 @@ import { SiteButton } from "@/components/site-button";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "MONTECH Global Services | BPO & Remote Business Support" },
+      { title: "MONTECH Global Services" },
       {
         name: "description",
         content:
@@ -332,6 +332,10 @@ function Index() {
                   <span className="grid size-10 shrink-0 place-items-center rounded-md bg-hero-label text-accent"><Mail className="size-5" aria-hidden="true" /></span>
                   info@montechglobalservices.com
                 </a>
+                <a href="tel:+8801576768207" className="flex items-center gap-3 text-sm text-hero-muted transition-colors hover:text-primary-foreground">
+                  <span className="grid size-10 shrink-0 place-items-center rounded-md bg-hero-label text-accent"><Phone className="size-5" aria-hidden="true" /></span>
+                  +880 1576 768207
+                </a>
                 <a href="tel:+8801922229420" className="flex items-center gap-3 text-sm text-hero-muted transition-colors hover:text-primary-foreground">
                   <span className="grid size-10 shrink-0 place-items-center rounded-md bg-hero-label text-accent"><Phone className="size-5" aria-hidden="true" /></span>
                   +880 1922 229420
@@ -350,6 +354,7 @@ function Index() {
             <p className="mt-5 text-sm text-footer-muted">BPO & Remote Business Support</p>
             <div className="mt-5 flex flex-col gap-2 text-sm">
               <a href="mailto:info@montechglobalservices.com" className="hover:text-primary-foreground">info@montechglobalservices.com</a>
+              <a href="tel:+8801576768207" className="hover:text-primary-foreground">+880 1576 768207</a>
               <a href="tel:+8801922229420" className="hover:text-primary-foreground">+880 1922 229420</a>
             </div>
           </div>
